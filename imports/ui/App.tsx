@@ -13,17 +13,17 @@ import TypescriptFundamentals from "./components/TypescriptFundamentals";
 
 export const App = () => {
   const navLinks = [
-    {to: "/", label: "Career Goals", end: true},
-    {to: "/fundamentals", label: "Fundamentals of Frontend Development"},
+    {to: "/", label: "Fundamentals of Frontend Development", end: true},
     {to: "/javascript-fundamentals", label: "JavaScript Fundamentals"},
     {to: "/react-fundamentals", label: "React Fundamentals"},
     {to: "/typescript-fundamentals", label: "TypeScript Fundamentals"},
+    {to: "/career-goals", label: "Career Goals"},
   ];
 
   return (
     <div className="p-4 flex flex-col items-center gap-8">
       <header className="flex flex-col items-center mb-4">
-        <h1 className="text-xl">Roadmap</h1>
+        <h1 className="text-2xl">Roadmap</h1>
         <p className="text-white/50 text-sm">
           A roadmap towards Senior Frontend Developer
         </p>
@@ -31,7 +31,7 @@ export const App = () => {
 
       <Router>
         <div className="overflow-x-auto w-full whitespace-nowrap">
-          <nav className="flex gap-4 mb-8 text-sm">
+          <nav className="flex justify-center gap-4 mb-8 text-sm">
             {navLinks.map((link, index) => {
               return (
                 <NavLink
@@ -53,8 +53,7 @@ export const App = () => {
           </nav>
         </div>
         <Routes>
-          <Route path="/" element={<CareerGoals />} />
-          <Route path="/fundamentals" element={<Fundamentals />} />
+          <Route path="/" element={<Fundamentals />} />
           <Route
             path="/javascript-fundamentals"
             element={<JavascriptFundamentals />}
@@ -64,6 +63,7 @@ export const App = () => {
             path="/typescript-fundamentals"
             element={<TypescriptFundamentals />}
           />
+          <Route path="/career-goals" element={<CareerGoals />} />
         </Routes>
       </Router>
     </div>

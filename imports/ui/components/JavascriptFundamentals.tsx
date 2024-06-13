@@ -92,7 +92,7 @@ const JavascriptFundamentals = () => {
                     {javascriptFundamental.description}
                   </p>
                 </div>
-                <button
+                {/* <button
                   className={`${
                     hiddenSections[javascriptFundamentalIndex]
                       ? "bg-context-success"
@@ -111,7 +111,7 @@ const JavascriptFundamentals = () => {
                     }`}
                     extraClasses="text-sm"
                   />
-                </button>
+                </button> */}
               </header>
               <div
                 className={`blocks flex flex-col gap-8 lg:gap-4  transition ${

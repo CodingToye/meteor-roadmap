@@ -21,18 +21,17 @@ const Block: React.FC<BlockProps> = ({
   meta,
   codeSample,
 }) => {
+  console.log(subBlocks?.length);
   const blockIconClasses = classnames(
-    "text-base relative lg:-left-9 p-1 shadow-lg border-t border-white/20",
+    "bg-context-info text-neutral-base text-base relative lg:-left-9 p-1 shadow-lg border-t border-white/20",
     {
-      "bg-context-info text-neutral-base": meta === "scenarios",
-      "bg-context-success text-neutral-base":
+      "!bg-context-success-base text-context-success-dark":
         meta === "positive" || meta === "solution",
-      "bg-context-failure text-neutral-base": meta === "negative",
-      "bg-context-disaster": meta === "problem",
-      "bg-context-warning text-neutral-base": meta === "notes",
-      "bg-code-javascript text-black": meta === "signature",
+      "!bg-context-failure-base !text-context-failure-dark":
+        meta === "negative" || meta === "problem",
+      "!bg-context-warning-base !text-context-warning-dark": meta === "notes",
+      "!bg-code-javascript !text-black": meta === "signature",
       "p-1 rounded shadow-lg": meta,
-      // "-left-9 p-1": !meta,
     }
   );
 
@@ -52,6 +51,18 @@ const Block: React.FC<BlockProps> = ({
         return "description";
       case (meta = "signature"):
         return "deployed_code";
+      case (meta = "tool"):
+        return "handyman";
+      case (meta = "component"):
+        return "widgets";
+      case (meta = "security"):
+        return "lock";
+      case (meta = "performance"):
+        return "trending_up";
+      case (meta = "lifecycle"):
+        return "cycle";
+      case (meta = "architecture"):
+        return "family_history";
       default:
         return "radio_button_checked";
     }
@@ -84,8 +95,8 @@ const Block: React.FC<BlockProps> = ({
           {children}
           {codeSample && <InlineCodeBlock sample={codeSample} meta={meta} />}
           <div
-            className={`grid grid-cols-1 lg:grid-cols-${
-              meta === "scenarios" || meta === "solution" ? 2 : 4
+            className={`grid lg:grid-cols-${
+              subBlocks?.length! >= 4 ? 4 : subBlocks?.length
             } gap-4`}
           >
             {subBlocks?.map((subBlock, subBlockIndex) => (

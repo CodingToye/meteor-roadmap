@@ -7,16 +7,30 @@ module.exports = {
         primary: "#f651ad",
         secondary: "#a5cc48",
         context: {
-          success: "#a5cc48",
-          failure: "red",
-          warning: "#ffce24",
+          success: {
+            base: "#a5cc48",
+            dark: "#4a661c",
+          },
+          failure: {
+            base: "#c53123",
+            dark: "#4b110d",
+          },
+          warning: {
+            base: "#ffce24",
+            dark: "#805b00",
+          },
           info: "#fff0d3",
           disaster: "#fe3b02",
+          tool: {
+            base: "#fca102",
+            dark: "#663800",
+          },
         },
         neutral: {
           base: "#0f0f0f",
-          light: "#2a2a3c",
           mid: "#0e172b",
+          light: "#2a2a3c",
+          lighter: "#f0f0f0",
         },
         code: {
           base: "#193549",
@@ -24,12 +38,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Roboto",sans-serif'],
+        headlines: ['"Rokkitt",serif'],
+        body: ['"Raleway", sans-serif'],
         code: ['"Inconsolata"'],
         signature: ['"Playpen Sans"'],
       },
     },
   },
-  safelist: ["lg:grid-cols-2", "lg:grid-cols-4"],
+  safelist: ["lg:grid-cols-2", "lg:grid-cols-3", "lg:grid-cols-4"],
   plugins: [],
 };

@@ -12,7 +12,9 @@ const Goal: React.FC<GoalProps> = ({goal, target, current, unit}) => {
   };
 
   function getClassName(number: number) {
-    return number < 0 ? "text-context-failure" : "text-context-success";
+    return number < 0
+      ? "text-context-failure-base"
+      : "text-context-success-base";
   }
 
   return (
@@ -21,7 +23,7 @@ const Goal: React.FC<GoalProps> = ({goal, target, current, unit}) => {
         <h1 className="text-lg text-primary">{goal}</h1>
       </header>
       <main className="flex flex-col gap-4 justify-between">
-        <div className="flex justify-between items-center text-sm bg-context-success text-neutral-base p-4 rounded">
+        <div className="flex justify-between items-center text-sm bg-context-success-base text-neutral-base p-4 rounded">
           <p>Target: </p>
           <p>
             {unit && unit}
@@ -32,11 +34,11 @@ const Goal: React.FC<GoalProps> = ({goal, target, current, unit}) => {
           className={`flex justify-between items-center text-sm ${
             typeof target === "number" && typeof current === "number"
               ? current >= target
-                ? "bg-context-success"
-                : "bg-context-warning"
+                ? "bg-context-success-base"
+                : "bg-context-warning-base"
               : current === target
-              ? "bg-context-success"
-              : "bg-context-warning"
+              ? "bg-context-success-base"
+              : "bg-context-warning-base"
           } text-neutral-base p-4 rounded`}
         >
           <p>Current:</p>

@@ -254,7 +254,6 @@ export const javascriptFundamentals = [
               "In web development, event handlers are functions that are called in response to user actions, such as clicks, keypresses, or form submissions.",
             codeSample:
               "document.getElementById('myButton').addEventListener('click, function() {\n  alert('Button clicked');\n});",
-            notes: "",
           },
           {
             title: "Object Methods",
@@ -1766,8 +1765,13 @@ export const javascriptFundamentals = [
         description:
           "Callback hell occurs when multiple asynchronous operations are nested within each other, leading to deeply nested and hard-to-read code.",
         meta: "problem",
-        codeSample:
-          "function firstTask(callback) {\n  setTimeout(() => {\n    console.log('First task completed');\n    callback();\n  }, 1000);\n}\n\nfunction secondTask(callback) {\n  setTimeout(() => {\n    console.log('Second task completed');\n    callback();\n  }, 1000);\n}\n\nfunction thirdTask(callback) {\n  setTimeout(() => {\n    console.log('Third task completed');\n    callback();\n  }, 1000);\n}\n\n// Nesting callbacks leading to callback hell\nfirstTask(() => {\n  secondTask(() => {\n    thirdTask(() => {\n      console.log('All tasks completed');\n    });\n  });\n});",
+        subBlocks: [
+          {
+            title: "Problem",
+            codeSample:
+              "function firstTask(callback) {\n  setTimeout(() => {\n    console.log('First task completed');\n    callback();\n  }, 1000);\n}\n\nfunction secondTask(callback) {\n  setTimeout(() => {\n    console.log('Second task completed');\n    callback();\n  }, 1000);\n}\n\nfunction thirdTask(callback) {\n  setTimeout(() => {\n    console.log('Third task completed');\n    callback();\n  }, 1000);\n}\n\n// Nesting callbacks leading to callback hell\nfirstTask(() => {\n  secondTask(() => {\n    thirdTask(() => {\n      console.log('All tasks completed');\n    });\n  });\n});",
+          },
+        ],
       },
       {
         title: "Potential Solutions for Callback Hell",
