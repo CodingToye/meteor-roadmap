@@ -11,12 +11,13 @@ export interface Block {
   description?: string | undefined;
   meta?: string;
   subBlocks?: SubBlockType[];
+  notes?: string;
   codeSample?: string;
 }
 
 export interface SubBlockType {
   title: string;
-  description: string;
+  description?: string;
   tip?: boolean;
   tools?: Tools[];
   codeSample?: string;

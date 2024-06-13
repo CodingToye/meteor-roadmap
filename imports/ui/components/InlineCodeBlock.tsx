@@ -16,7 +16,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({sample, meta}) => {
           style={materialDark}
           PreTag="div"
           children={sample}
-          className="rounded text-sm shadow-inner"
+          className="rounded-xl text-sm shadow-inner"
           codeTagProps={{style: {fontFamily: "Playpen Sans"}}}
         />
       </div>

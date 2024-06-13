@@ -21,34 +21,37 @@ export const App = () => {
   ];
 
   return (
-    <div className="p-4 flex flex-col gap-8">
-      <header className="flex flex-col items-center mb-12">
+    <div className="p-4 flex flex-col items-center gap-8">
+      <header className="flex flex-col items-center mb-4">
         <h1 className="text-xl">Roadmap</h1>
-        <p className="text-white/50">
+        <p className="text-white/50 text-sm">
           A roadmap towards Senior Frontend Developer
         </p>
       </header>
+
       <Router>
-        <nav className="flex gap-4">
-          {navLinks.map((link, index) => {
-            return (
-              <NavLink
-                key={index}
-                to={link.to}
-                className={({isActive}) =>
-                  `transition hover:text-white ${
-                    isActive
-                      ? "text-primary hover:text-primary"
-                      : "text-white/50"
-                  }`
-                }
-                end={link.end}
-              >
-                {link.label}
-              </NavLink>
-            );
-          })}
-        </nav>
+        <div className="overflow-x-auto w-full whitespace-nowrap">
+          <nav className="flex gap-4 mb-8 text-sm">
+            {navLinks.map((link, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  to={link.to}
+                  className={({isActive}) =>
+                    `transition hover:text-white ${
+                      isActive
+                        ? "text-primary hover:text-primary"
+                        : "text-white/50"
+                    }`
+                  }
+                  end={link.end}
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
+          </nav>
+        </div>
         <Routes>
           <Route path="/" element={<CareerGoals />} />
           <Route path="/fundamentals" element={<Fundamentals />} />

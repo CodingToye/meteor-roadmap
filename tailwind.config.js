@@ -10,7 +10,7 @@ module.exports = {
           success: "#a5cc48",
           failure: "red",
           warning: "#ffce24",
-          info: "#389df9",
+          info: "#fff0d3",
           disaster: "#fe3b02",
         },
         neutral: {
@@ -30,6 +30,6 @@ module.exports = {
       },
     },
   },
-  safelist: ["grid-cols-2", "grid-cols-4"],
+  safelist: ["lg:grid-cols-2", "lg:grid-cols-4"],
   plugins: [],
 };

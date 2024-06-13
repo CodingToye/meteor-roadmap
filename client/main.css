@@ -12,4 +12,5 @@ body {
 
 .debug {
   outline: 1px dashed red;
+  @apply bg-white/50;
 }

@@ -7,8 +7,8 @@ import classnames from "classnames";
 export interface SubBlockProps {
   title: string;
   children: React.ReactNode;
-  tip: boolean;
-  tools: string[];
+  tip?: boolean;
+  tools?: string[];
   meta?: string;
   codeSample?: string;
   notes?: string;
@@ -23,31 +23,21 @@ const SubBlock: React.FC<SubBlockProps> = ({
   codeSample,
   notes,
 }) => {
-  const subBlockClasses = classnames(
-    "p-4 rounded transition flex gap-4 items-center",
-    {
-      "bg-black/40": !meta,
-      "bg-context-info text-white": meta === "scenarios",
-      "bg-context-success text-white":
-        meta === "positive" || meta === "solution",
-      "bg-context-failure text-white": meta === "negative",
-      "bg-context-warning text-black italic font-signature": meta === "notes",
-      "bg-primary": tip,
-    }
-  );
+  const subBlockClasses = classnames("p-4 rounded transition ", {
+    "bg-black/40": !meta,
+    "bg-context-info text-neutral-base": meta === "scenarios",
+    "bg-context-success text-black": meta === "positive" || meta === "solution",
+    "bg-context-failure text-white": meta === "negative",
+    "bg-context-warning text-black italic font-signature": meta === "notes",
+    "bg-primary": tip,
+  });
 
   return (
     <div className={subBlockClasses}>
       {meta === "notes" && <Icon iconName="stylus_note" />}
-      <div>
+      <div className="">
         <header className="mb-4 flex justify-between">
-          <h1
-            className={`${
-              meta === "scenarios" ? "text-white" : "text-neutral-base"
-            } font-bold text-base`}
-          >
-            {title}
-          </h1>
+          <h1 className={` font-bold text-base text-neutral-base`}>{title}</h1>
           {tools && <Icon iconName="construction" />}
         </header>
         <main className="text-xs  flex flex-col gap-4">

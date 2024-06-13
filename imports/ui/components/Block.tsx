@@ -22,11 +22,12 @@ const Block: React.FC<BlockProps> = ({
   codeSample,
 }) => {
   const blockIconClasses = classnames(
-    "text-base relative -left-9 p-1 shadow-lg border-t border-white/20",
+    "text-base relative lg:-left-9 p-1 shadow-lg border-t border-white/20",
     {
-      "bg-context-info": meta === "scenarios",
-      "bg-context-success": meta === "positive" || meta === "solution",
-      "bg-context-failure": meta === "negative",
+      "bg-context-info text-neutral-base": meta === "scenarios",
+      "bg-context-success text-neutral-base":
+        meta === "positive" || meta === "solution",
+      "bg-context-failure text-neutral-base": meta === "negative",
       "bg-context-disaster": meta === "problem",
       "bg-context-warning text-neutral-base": meta === "notes",
       "bg-code-javascript text-black": meta === "signature",
@@ -59,7 +60,9 @@ const Block: React.FC<BlockProps> = ({
   const iconName = blockIcon(meta);
 
   return (
-    <section className={`relative pl-6 flex items-center transition`}>
+    <section
+      className={`relative lg:pl-6 flex flex-col lg:flex-row gap-4 lg:gap-0  items-center transition`}
+    >
       <Icon iconName={iconName} extraClasses={blockIconClasses} />
       <div
         className={`p-4 rounded w-full ${
@@ -81,7 +84,7 @@ const Block: React.FC<BlockProps> = ({
           {children}
           {codeSample && <InlineCodeBlock sample={codeSample} meta={meta} />}
           <div
-            className={`grid grid-cols-${
+            className={`grid grid-cols-1 lg:grid-cols-${
               meta === "scenarios" || meta === "solution" ? 2 : 4
             } gap-4`}
           >
