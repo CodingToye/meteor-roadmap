@@ -24,7 +24,7 @@ const SubBlock: React.FC<SubBlockProps> = ({
   notes,
 }) => {
   const subBlockClasses = classnames("p-4 rounded transition ", {
-    "bg-black/40": !meta,
+    "bg-secondary text-neutral-base": !meta,
     "bg-context-info text-neutral-base": meta === "scenarios",
     "bg-context-success text-black": meta === "positive" || meta === "solution",
     "bg-context-failure text-white": meta === "negative",

@@ -9,10 +9,10 @@ export interface CodeBlockProps {
 
 const CodeBlock: React.FC<CodeBlockProps> = ({sample}) => {
   return (
-    <div className="relative pl-6 flex items-center">
+    <div className="relative lg:pl-6 flex flex-col lg:flex-row gap-4 lg:gap-0 items-center transition">
       <Icon
         iconName="code"
-        extraClasses="bg-code-base p-1 rounded shadow-lg border-t border-white/20 text-base relative -left-9"
+        extraClasses="bg-code-base p-1 rounded shadow-lg border-t border-white/20 text-base relative lg:-left-9"
       />
       <div className="w-full relative">
         <SyntaxHighlighter
