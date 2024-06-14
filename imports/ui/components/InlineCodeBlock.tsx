@@ -9,7 +9,7 @@ export interface CodeBlockProps {
 
 const CodeBlock: React.FC<CodeBlockProps> = ({sample, meta}) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center overflow">
       <div className="w-full relative">
         <SyntaxHighlighter
           language="tsx"

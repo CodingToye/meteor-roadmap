@@ -95,7 +95,7 @@ const Block: React.FC<BlockProps> = ({
           {children}
           {codeSample && <InlineCodeBlock sample={codeSample} meta={meta} />}
           <div
-            className={`grid lg:grid-cols-${
+            className={`grid grid-cols-1 lg:grid-cols-${
               subBlocks?.length! >= 4 ? 4 : subBlocks?.length
             } gap-4`}
           >

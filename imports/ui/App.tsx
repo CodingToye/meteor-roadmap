@@ -13,11 +13,11 @@ import TypescriptFundamentals from "./components/TypescriptFundamentals";
 
 export const App = () => {
   const navLinks = [
-    {to: "/", label: "Fundamentals of Frontend Development", end: true},
+    {to: "/", label: "Fundamentals of Frontend Development"},
     {to: "/javascript-fundamentals", label: "JavaScript Fundamentals"},
     {to: "/react-fundamentals", label: "React Fundamentals"},
     {to: "/typescript-fundamentals", label: "TypeScript Fundamentals"},
-    {to: "/career-goals", label: "Career Goals"},
+    {to: "/career-goals", label: "Career Goals", end: true},
   ];
 
   return (
@@ -31,7 +31,7 @@ export const App = () => {
 
       <Router>
         <div className="overflow-x-auto w-full whitespace-nowrap">
-          <nav className="flex justify-center gap-4 mb-8 text-sm">
+          <nav className="flex lg:justify-center gap-4 mb-8 text-sm">
             {navLinks.map((link, index) => {
               return (
                 <NavLink
