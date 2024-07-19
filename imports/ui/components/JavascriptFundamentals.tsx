@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Block from "./Block";
 import CodeBlock from "./CodeBlock";
-import Icon from "./Icon";
 import {javascriptFundamentals} from "../../api/javascript-fundamentals";
 
 const JavascriptFundamentals = () => {
@@ -125,7 +124,7 @@ const JavascriptFundamentals = () => {
                     key={blockIndex}
                     title={block.title}
                     subBlocks={block.subBlocks}
-                    meta={block.meta}
+                    meta={block.meta || javascriptFundamental.meta}
                     codeSample={block.codeSample}
                   >
                     {block.description ?? renderDescription(block.description)}

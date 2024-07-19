@@ -11,6 +11,7 @@ export interface SubBlockProps {
   tools?: string[];
   meta?: string;
   codeSample?: string;
+  language?: string;
   notes?: string;
 }
 
@@ -21,6 +22,7 @@ const SubBlock: React.FC<SubBlockProps> = ({
   tools,
   meta,
   codeSample,
+  language = "javascript",
   notes,
 }) => {
   const subBlockClasses = classnames(
@@ -57,7 +59,9 @@ const SubBlock: React.FC<SubBlockProps> = ({
         </header>
         <main className="text-xs flex flex-col gap-4">
           {children}
-          {codeSample && <InlineCodeBlock sample={codeSample} />}
+          {codeSample && (
+            <InlineCodeBlock sample={codeSample} language={language} />
+          )}
           {notes && (
             <div className="bg-context-warning-base text-context-warning-dark font-signature p-2 rounded text-xs flex gap-4 items-center">
               <Icon iconName="stylus_note" />

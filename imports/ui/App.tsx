@@ -10,6 +10,7 @@ import Fundamentals from "./components/Fundamentals";
 import JavascriptFundamentals from "./components/JavascriptFundamentals";
 import ReactFundamentals from "./components/ReactFundamentals";
 import TypescriptFundamentals from "./components/TypescriptFundamentals";
+import NodeFundamentals from "./components/NodeFundamentals";
 
 export const App = () => {
   const navLinks = [
@@ -17,7 +18,8 @@ export const App = () => {
     {to: "/javascript-fundamentals", label: "JavaScript Fundamentals"},
     {to: "/react-fundamentals", label: "React Fundamentals"},
     {to: "/typescript-fundamentals", label: "TypeScript Fundamentals"},
-    {to: "/career-goals", label: "Career Goals", end: true},
+    {to: "/node-fundamentals", label: "Node Fundamentals"},
+    // {to: "/career-goals", label: "Career Goals", end: true},
   ];
 
   return (
@@ -25,7 +27,7 @@ export const App = () => {
       <header className="flex flex-col items-center mb-4">
         <h1 className="text-2xl">Roadmap</h1>
         <p className="text-white/50 text-sm">
-          A roadmap towards Senior Frontend Developer
+          A roadmap towards Senior Fullstack Frontend Engineer
         </p>
       </header>
 
@@ -63,6 +65,7 @@ export const App = () => {
             path="/typescript-fundamentals"
             element={<TypescriptFundamentals />}
           />
+          <Route path="/node-fundamentals" element={<NodeFundamentals />} />
           <Route path="/career-goals" element={<CareerGoals />} />
         </Routes>
       </Router>

@@ -5,14 +5,15 @@ import {materialDark} from "react-syntax-highlighter/dist/esm/styles/prism";
 export interface CodeBlockProps {
   sample: string;
   meta?: string;
+  language?: string;
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({sample, meta}) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({sample, meta, language}) => {
   return (
     <div className="flex items-center overflow">
       <div className="w-full relative">
         <SyntaxHighlighter
-          language="tsx"
+          language={language}
           style={materialDark}
           PreTag="div"
           children={sample}

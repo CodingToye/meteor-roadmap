@@ -1,7 +1,6 @@
 import React from "react";
 import Block from "./Block";
 import CodeBlock from "./CodeBlock";
-import Icon from "./Icon";
 import {reactFundamentals} from "../../api/react-fundamentals";
 
 const ReactFundamentals = () => {
@@ -40,6 +39,7 @@ const ReactFundamentals = () => {
                   title={block.title}
                   subBlocks={block.subBlocks}
                   meta={block.meta}
+                  codeSample={block.codeSample}
                 >
                   {block.description ?? renderDescription(block.description)}
                 </Block>

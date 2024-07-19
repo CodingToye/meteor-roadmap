@@ -9,6 +9,7 @@ export interface BlockProps {
   title: string;
   children: React.ReactNode;
   meta: string | undefined;
+  language: string;
   subBlocks?: SubBlockType[];
   codeSample?: string;
   notes?: string;
@@ -19,9 +20,10 @@ const Block: React.FC<BlockProps> = ({
   children,
   subBlocks,
   meta,
+  language = "javascript",
   codeSample,
 }) => {
-  console.log(subBlocks?.length);
+  console.log(meta);
   const blockIconClasses = classnames(
     "bg-context-info text-neutral-base text-base relative lg:-left-9 p-1 shadow-lg border-t border-white/20",
     {
@@ -31,6 +33,7 @@ const Block: React.FC<BlockProps> = ({
         meta === "negative" || meta === "problem",
       "!bg-context-warning-base !text-context-warning-dark": meta === "notes",
       "!bg-code-javascript !text-black": meta === "signature",
+      "!bg-primary": meta === "info",
       "p-1 rounded shadow-lg": meta,
     }
   );
@@ -63,6 +66,8 @@ const Block: React.FC<BlockProps> = ({
         return "cycle";
       case (meta = "architecture"):
         return "family_history";
+      case (meta = "info"):
+        return "description";
       default:
         return "radio_button_checked";
     }
@@ -93,7 +98,13 @@ const Block: React.FC<BlockProps> = ({
           }`}
         >
           {children}
-          {codeSample && <InlineCodeBlock sample={codeSample} meta={meta} />}
+          {codeSample && (
+            <InlineCodeBlock
+              sample={codeSample}
+              meta={meta}
+              language={language}
+            />
+          )}
           <div
             className={`grid grid-cols-1 lg:grid-cols-${
               subBlocks?.length! >= 4 ? 4 : subBlocks?.length

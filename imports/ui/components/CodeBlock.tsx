@@ -5,9 +5,10 @@ import {cb} from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export interface CodeBlockProps {
   sample: string;
+  language?: string;
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({sample}) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({sample, language}) => {
   return (
     <div className="relative lg:pl-6 flex flex-col lg:flex-row gap-4 lg:gap-0 items-center transition">
       <Icon
@@ -16,7 +17,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({sample}) => {
       />
       <div className="w-full relative">
         <SyntaxHighlighter
-          language="tsx"
+          language={language}
           style={cb}
           PreTag="div"
           children={sample}

@@ -1964,7 +1964,7 @@ export const javascriptFundamentals = [
     ],
   },
   {
-    title: "Fetch()",
+    title: "fetch()",
     description:
       "`fetch()` is a modern JavaScript function for making HTTP requests. It returns a `Promise` that resolves to the response object representing the response to the request.",
     blocks: [
@@ -2320,6 +2320,331 @@ export const javascriptFundamentals = [
               "Calculating the total price of items in a shopping cart.",
             codeSample:
               "const cart = [\n  { item: 'Laptop', price: 999.99 },\n  { item: 'Mouse', price: 19.99 },\n  { item: 'Keyboard', price: 49.99 }\n];\nconst totalPrice = cart.reduce((total, item) => total + item.price, 0);\nconsole.log(totalPrice); // Output: 1069.97",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Spread Operator",
+    description:
+      "The spread operator allows an iterable (like an array or string) to be expanded in places where multiple elements or arguments are expected.",
+    blocks: [
+      {
+        title: "Code Examples",
+        description: "",
+        meta: "signature",
+        subBlocks: [
+          {
+            title: "Expanding Arrays",
+            description:
+              "Using the spread operator to combine two arrays into one.",
+
+            codeSample:
+              "const arr1 = [1, 2, 3];\nconst arr2 = [...arr1, 4, 5, 6];\nconsole.log(arr2); // Output: [1, 2, 3, 4, 5, 6]",
+          },
+          {
+            title: "Function Arguments",
+            description:
+              "Using the spread operator to pass elements of an array as arguments to a function.",
+            codeSample:
+              "function sum(a, b, c) {\n  return a + b + c;\n}\nconst numbers = [1, 2, 3];\nconsole.log(sum(...numbers)); // Output: 6",
+          },
+          {
+            title: "Copying Arrays",
+            description:
+              "Using the spread operator to create a shallow copy of an array.",
+            codeSample:
+              "const arr1 = [1, 2, 3];\nconst arr2 = [...arr1];\narr2.push(4);\nconsole.log(arr1); // Output: [1, 2, 3]\nconsole.log(arr2); // Output: [1, 2, 3, 4]",
+          },
+          {
+            title: "Copying Objects",
+            description:
+              "Using the spread operator to create a shallow copy of an object and add new properties.",
+            codeSample:
+              "const obj1 = { a: 1, b: 2 };\nconst obj2 = { ...obj1, c: 3 };\nconsole.log(obj2); // Output: { a: 1, b: 2, c: 3 }",
+          },
+          {
+            title: "Merging Objects",
+            description:
+              "Using the spread operator to merge properties from multiple objects into one object.",
+            codeSample:
+              "const obj1 = { a: 1, b: 2 };\nconst obj2 = { b: 3, c: 4 };\nconst mergedObj = { ...obj1, ...obj2 };\nconsole.log(mergedObj); // Output: { a: 1, b: 3, c: 4 }",
+          },
+        ],
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Concise Syntax",
+            description: "Provides a shorthand for expanding iterables.",
+          },
+          {
+            title: "Immutability",
+            description:
+              "Helps in create copies of arrays and objects, promoting immutability.",
+          },
+          {
+            title: "Flexible",
+            description:
+              "Can be used in a variety of contexts, including function arguments, array literals and object literals.",
+          },
+        ],
+      },
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Performance",
+            description:
+              "May have performance implications for very large arrays or objects because it creates shallow copies.",
+          },
+          {
+            title: "Shallow Copy",
+            description:
+              "Only creates a shallow copy, which menas nested objects or arrays are still referenced.",
+          },
+        ],
+      },
+      {
+        title: "Real World Scenarios",
+        description: "",
+        meta: "scenarios",
+        subBlocks: [
+          {
+            title: "Cloning an Array",
+            description:
+              "You want to create a copy of an array to avoid mutating the original array.",
+            codeSample:
+              "const original = [1, 2, 3];\nconst copy = [...original];\ncopy.push(4);\nconsole.log(original); // Output: [1, 2, 3]\nconsole.log(copy); // Output: [1, 2, 3, 4]",
+          },
+          {
+            title: "Merging State in a Redux Reducer",
+            description:
+              "You want to update the state of a component by merging new properties into the existing state.",
+            codeSample:
+              "const initialState = { a: 1, b: 2 };\nfunction reducer(state = initialState, action) {\n  switch (action.type) {\n    case 'UPDATE':\n      return { ...state, ...action.payload };\n    default:\n      return state;\n  }\n}\nconst newState = reducer(initialState, { type: 'UPDATE', payload: { b: 3, c: 4 } });\nconsole.log(newState); // Output: { a: 1, b: 3, c: 4 }",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Rest Operator",
+    description:
+      "The rest operator collects all remaining elements or properties into a new array or object. It is used in function parameters to handle an indefinite number of arguments and in destructuring assignments to gather the rest of the elements or properties.",
+
+    blocks: [
+      {
+        title: "Code Examples",
+        description: "",
+        meta: "signature",
+        subBlocks: [
+          {
+            title: "Function Parameters",
+            description: "Collecting function arguments into an array.",
+
+            codeSample:
+              "function sum(...numbers) {\n  return numbers.reduce((acc, curr) => acc + curr, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4)); // Output: 10",
+          },
+          {
+            title: "Array Destructuring",
+            description:
+              "Destructuring arrays to collect the rest of the elements.",
+            codeSample:
+              "const [first, second, ...rest] = [1, 2, 3, 4, 5];\n\nconsole.log(first); // Output: 1\nconsole.log(second); // Output: 2\nconsole.log(rest); // Output: [3, 4, 5]",
+          },
+          {
+            title: "Object Destructuring",
+            description:
+              "Destructuring objects to collect the rest of the properties.",
+            codeSample:
+              "const { a, b, ...rest } = { a: 1, b: 2, c: 3, d: 4 };\n\nconsole.log(a); // Output: 1\nconsole.log(b); // Output: 2\nconsole.log(rest); \\ Output: { c: 3, d: 4 }",
+          },
+        ],
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Flexible with Function Arguments",
+            description:
+              "Allows functions to handle an indefinite number of arguments without needing to explicitly define them. This makes the functions more flexible and reusable.",
+            codeSample:
+              "function sum(...numbers) {\n  return numbers.reduce((acc, curr) => acc + curr, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4)); // Output: 10",
+          },
+          {
+            title: "Simplifies Array and Object Destructuring",
+            description:
+              "Makes it easyt to capture remaining elements in an array or renaming properties in an object destructuring.",
+            codeSample:
+              "const [first, second, ...rest] = [1, 2, 3, 4, 5];\nconsole.log(rest); // Output: [3, 4, 5]\n\nconst { a, b, ...others } = { a: 1, b: 2, c: 3, d: 4 };\nconsole.log(others); // Output: { c: 3, d: 4 }",
+          },
+          {
+            title: "Cleaner Code",
+            description:
+              "Leads to cleaner code and more readable code by avoiding the need to manually handle the remaining arguments or elements.",
+            codeSample:
+              "function logAll(...args) {\n  console.log(args);\n}\n\nlogAll('a', 'b', 'c'}; // Output: [a, b, c]",
+          },
+          {
+            title: "Avoids Explicit Looping",
+            description:
+              "Eliminates the need for explicit loops to handle mutliple arguments, making the code more concise and easier to maintain.",
+            codeSample:
+              "function multiple(multiplier, ...numbers) {\n  return numbers.map(num => num * multipliers);\n}\n\nconsole.log(multiple(2, 1, 2, 3)); // Output: [2, 4, 6]",
+          },
+        ],
+      },
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Performance Implications",
+            description:
+              "Collecting a large number of elements into an array can have performance implications, especially if the rest operator is used frequently in performance-critical code.",
+            codeSample:
+              "function processLargeData(...data) {\n  // Processing a lare number of data elements might be slow\n}",
+          },
+          {
+            title: "Potential for Misuse",
+            description:
+              "Overusing the rest operator can lead to functions that are too flexible, making it difficult to understand what arguments are expected. This can reduce code clarity and increase the risk of errors.",
+            codeSample:
+              "function printArguments(...args) {\n  args.forEach(arg => console.log(arg));\n}\n\nprintArguments(1, 'a', {}, [], true); // This can make it unclear what the function is supposed to do",
+          },
+          {
+            title: "Limited to the End",
+            description:
+              "The rest parameter must be the last parameter in a function definition. This can be limiting if you need to collect arguments from the middle of an argument list.",
+            codeSample:
+              "function invalidFunction(a, ...rest, b) {\n  // SyntaxError: Rest parameter must be last formal parameter\n}",
+          },
+        ],
+      },
+      {
+        title: "Real World Scenarios",
+        description: "",
+        meta: "scenarios",
+        subBlocks: [
+          {
+            title: "Cloning an Array",
+            description:
+              "You want to create a copy of an array to avoid mutating the original array.",
+            codeSample:
+              "const original = [1, 2, 3];\nconst copy = [...original];\ncopy.push(4);\nconsole.log(original); // Output: [1, 2, 3]\nconsole.log(copy); // Output: [1, 2, 3, 4]",
+          },
+          {
+            title: "Merging State in a Redux Reducer",
+            description:
+              "You want to update the state of a component by merging new properties into the existing state.",
+            codeSample:
+              "const initialState = { a: 1, b: 2 };\nfunction reducer(state = initialState, action) {\n  switch (action.type) {\n    case 'UPDATE':\n      return { ...state, ...action.payload };\n    default:\n      return state;\n  }\n}\nconst newState = reducer(initialState, { type: 'UPDATE', payload: { b: 3, c: 4 } });\nconsole.log(newState); // Output: { a: 1, b: 3, c: 4 }",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Shallow Copy vs Deep Copy",
+    description:
+      "In JS, copying objects and arrays can be done in two main ways: shallow copy and deep copy. Understanding the difference is crucial for managing complex data structures and avoiding side effects.",
+    meta: "info",
+    blocks: [
+      {
+        title: "Shallow Copy",
+        description:
+          "A shallow copy of an object or array copies the top-level properties and references of the original object or array. However, if the original object contains nested objects or arrays, the references to these nested objects are copied, not the objects themselves. This means that changes to nested objects in the copied structure will affect the original structure, and vice versa.",
+      },
+      {
+        title: "Code Example",
+        description: "",
+        meta: "signature",
+        codeSample:
+          "const original = { a: 1, b: { c: 2 } };\nconst copy = { ...original };\ncopy.b.c = 3;\nconsole.log(original.b.c); // Output: 3",
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Performance",
+            description:
+              "Faster to create since it only copies top-level properties and references.",
+          },
+          {
+            title: "Memory Usage",
+            description: "Uses less memory compared to a deep copy.",
+          },
+        ],
+      },
+
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Shared References",
+            description:
+              "Changes to nested objects in the copy will affect the original object and visa versa, which can lead to unintended side effects.",
+          },
+        ],
+      },
+      {
+        title: "Deep Copy",
+        description:
+          "A deep copy of an object or array creates an enirely new structure that is complete and independent copy of the original structure. This includes duplicating all nested objects and arrays, ensuring that the copied structure is entirely separate from the original. Changes to the copied structure do not affect the original structure and vice versa.",
+        meta: "info",
+      },
+      {
+        title: "Code Example",
+        description: "",
+        meta: "signature",
+        codeSample:
+          "const original = { a: 1, b: { c: 2 } };\nconst copy = JSON.parse(JSON.stringify(original));\ncopy.b.c = 3;\nconsole.log(original.b.c); // Output: 2",
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Independent Copies",
+            description:
+              "Changes to the copied structure do not affect the original strucutr, and vice versa, which helps avoid unintended side effects.",
+          },
+          {
+            title: "Data Integrity",
+            description:
+              "Ensures that the copied structure is a complete and independent duplicate of the original.",
+          },
+        ],
+      },
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Performance",
+            description:
+              "Slower to create compared to a shallow copy, especially for large and complex structures.",
+          },
+          {
+            title: "Memory Usage",
+            description:
+              "Uses more memory since it duplicates all nested objects and arrays.",
           },
         ],
       },
