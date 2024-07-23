@@ -9,7 +9,7 @@ export interface BlockProps {
   title: string;
   children: React.ReactNode;
   meta: string | undefined;
-  language: string;
+  language?: string;
   subBlocks?: SubBlockType[];
   codeSample?: string;
   notes?: string;
@@ -18,14 +18,13 @@ export interface BlockProps {
 const Block: React.FC<BlockProps> = ({
   title,
   children,
-  subBlocks,
+  subBlocks = [],
   meta,
   language = "javascript",
   codeSample,
 }) => {
-  console.log(meta);
   const blockIconClasses = classnames(
-    "bg-context-info text-neutral-base text-base relative lg:-left-9 p-1 shadow-lg border-t border-white/20",
+    "bg-context-info text-neutral-base text-base   p-1 shadow-lg border-t border-white/20",
     {
       "!bg-context-success-base text-context-success-dark":
         meta === "positive" || meta === "solution",
@@ -40,33 +39,33 @@ const Block: React.FC<BlockProps> = ({
 
   const blockIcon = (meta: string | undefined) => {
     switch (meta) {
-      case (meta = "scenarios"):
+      case "scenarios":
         return "deployed_code";
-      case (meta = "positive"):
+      case "positive":
         return "check";
-      case (meta = "negative"):
+      case "negative":
         return "close";
-      case (meta = "problem"):
+      case "problem":
         return "local_fire_department";
-      case (meta = "solution"):
+      case "solution":
         return "lightbulb";
-      case (meta = "notes"):
+      case "notes":
         return "description";
-      case (meta = "signature"):
+      case "signature":
         return "deployed_code";
-      case (meta = "tool"):
+      case "tool":
         return "handyman";
-      case (meta = "component"):
+      case "component":
         return "widgets";
-      case (meta = "security"):
+      case "security":
         return "lock";
-      case (meta = "performance"):
+      case "performance":
         return "trending_up";
-      case (meta = "lifecycle"):
+      case "lifecycle":
         return "cycle";
-      case (meta = "architecture"):
+      case "architecture":
         return "family_history";
-      case (meta = "info"):
+      case "info":
         return "description";
       default:
         return "radio_button_checked";
@@ -77,9 +76,8 @@ const Block: React.FC<BlockProps> = ({
 
   return (
     <section
-      className={`relative lg:pl-6 flex flex-col lg:flex-row gap-4 lg:gap-0  items-center transition`}
+      className={`relative  flex flex-col lg:flex-row gap-4 lg:gap-0  items-center transition`}
     >
-      <Icon iconName={iconName} extraClasses={blockIconClasses} />
       <div
         className={`p-4 rounded w-full ${
           meta === "signature"
@@ -88,7 +86,8 @@ const Block: React.FC<BlockProps> = ({
         }`}
       >
         {meta !== "signature" && (
-          <header className="-top-1 relative mb-4">
+          <header className="-top-1 relative mb-4 flex items-center gap-4">
+            <Icon iconName={iconName} extraClasses={blockIconClasses} />
             <h1 className="text-base">{title}</h1>
           </header>
         )}

@@ -1,21 +1,21 @@
 export interface Section {
   title: string;
   description: string;
-  showBlocks: boolean;
   blocks: Block[];
-  codeSample?: string;
+  // codeSample?: string | undefined;
 }
 
 export interface Block {
   title: string;
   description?: string | undefined;
   meta?: string;
-  subBlocks?: SubBlockType[];
+  language?: string;
+  subBlocks?: SubBlock[];
   notes?: string;
   codeSample?: string;
 }
 
-export interface SubBlockType {
+export interface SubBlock {
   title: string;
   description?: string;
   tip?: boolean;

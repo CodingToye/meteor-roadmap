@@ -5,12 +5,14 @@ import {
   Routes,
   NavLink,
 } from "react-router-dom";
-import CareerGoals from "./components/CareerGoals";
 import Fundamentals from "./components/Fundamentals";
 import JavascriptFundamentals from "./components/JavascriptFundamentals";
 import ReactFundamentals from "./components/ReactFundamentals";
 import TypescriptFundamentals from "./components/TypescriptFundamentals";
 import NodeFundamentals from "./components/NodeFundamentals";
+import NextJsFundamentals from "./components/NextJsFundamentals";
+import OtherLibraries from "./components/OtherLibraries";
+import CssModules from "./components/CssModules";
 
 export const App = () => {
   const navLinks = [
@@ -19,7 +21,9 @@ export const App = () => {
     {to: "/react-fundamentals", label: "React Fundamentals"},
     {to: "/typescript-fundamentals", label: "TypeScript Fundamentals"},
     {to: "/node-fundamentals", label: "Node Fundamentals"},
-    // {to: "/career-goals", label: "Career Goals", end: true},
+    {to: "/nextjs-fundamentals", label: "Next JS Fundamentals"},
+    {to: "/other-libraries", label: "Other Libraries"},
+    {to: "/css-modules", label: "CSS Modules"},
   ];
 
   return (
@@ -66,7 +70,9 @@ export const App = () => {
             element={<TypescriptFundamentals />}
           />
           <Route path="/node-fundamentals" element={<NodeFundamentals />} />
-          <Route path="/career-goals" element={<CareerGoals />} />
+          <Route path="/nextjs-fundamentals" element={<NextJsFundamentals />} />
+          <Route path="/other-libraries" element={<OtherLibraries />} />
+          <Route path="/css-modules" element={<CssModules />} />
         </Routes>
       </Router>
     </div>

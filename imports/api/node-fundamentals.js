@@ -115,7 +115,7 @@ export const nodeFundamentals = [
         meta: "scenarios",
         subBlocks: [
           {
-            title: "handling multiple setTimeout calls",
+            title: "Handling multiple setTimeout calls",
             description: "",
             codeSample:
               "console.log('Start');\n\nsetTimeout(() => {\n    console.log('Timeout 1');\n}, 1000);\n\nsetTimeout(() => {\n    console.log('Timeout 2');\n}, 500);\n\nconsole.log('End;);",
@@ -696,6 +696,112 @@ export const nodeFundamentals = [
             codeSample:
               "process.on('exit', (code) => {\n    console.log(`About to exit with code: ${code}`);\n});\n\nconsole.log('This message is displayed first');\nprocess.exit(0);",
             notes: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "ES6 Modules",
+    description: "",
+    blocks: [
+      {
+        title: "The `require` Function",
+        meta: "scenarios",
+        description:
+          "Traditionally, Node.js has used the CommonJS module system, where modules are included using the `require` function.  This system is synchronous and was designed to be simple and effective for server-side JavaScript.",
+        subBlocks: [
+          {
+            title: "Example",
+            meta: "code",
+            codeSample:
+              "// math.js\nconst add = (a, b) => a + b;\nmodule.exports = { add };\n\n// app.js\nconst math = require('./math');\nconsole.log(math.add(2, 3)); // Outputs: 5",
+          },
+        ],
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Simple",
+            description: "Syntax is simple to understand and easy to use.",
+          },
+          {
+            title: "Synchronous Loading",
+            description:
+              "Synchronous loading is straightforward in a server environment.",
+          },
+        ],
+      },
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Compatability",
+            description:
+              "Not compatible with the ES6 module system used by browsers.",
+          },
+          {
+            title: "Analysis and Optimisation",
+            description:
+              "Cannot be statically analysed, which makes tree-shaking and other optimisations harder.",
+          },
+        ],
+      },
+      {
+        title: "The ES6 `import` Statement",
+        meta: "scenarios",
+        description:
+          "The ES6 module system introduces a standardised way to import and export modules, which is compatible with both browsers and Node.js. ES6 modules are designed to be statically analysable, allowing for better optimisation and tooling.",
+        subBlocks: [
+          {
+            title: "Example",
+            meta: "code",
+            codeSample:
+              "// math.js\nexport const add = (a, b) => a + b;\n\n// app.js\nimport { add } from './math.js';\nconsole.log(add(2, 3)); // Outputs: 5",
+          },
+        ],
+      },
+      {
+        title: "Pros",
+        description: "",
+        meta: "positive",
+        subBlocks: [
+          {
+            title: "Consistent",
+            description:
+              "Consistent module system across both client and server environment.",
+          },
+          {
+            title: "Static Analysis & Tooling",
+            description:
+              "Enables static analysis, tree-shaking, and improved tooling.",
+          },
+          {
+            title: "Asynchronous",
+            description:
+              "Supports asynchronous loading, which is beneficial for performance in client environments.",
+          },
+        ],
+      },
+      {
+        title: "Cons",
+        description: "",
+        meta: "negative",
+        subBlocks: [
+          {
+            title: "Configuration",
+            description:
+              "Requires additional configuration in Mode.js to use ES6 modules.",
+          },
+          {
+            title: "Asynchronous Complexities",
+            description:
+              "Asynchronous nature can complicate some server-side code.",
           },
         ],
       },
